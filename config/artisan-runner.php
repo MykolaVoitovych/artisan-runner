@@ -3,11 +3,28 @@
 return [
     /*
     |--------------------------------------------------------------------------
+    | Enabled
+    |--------------------------------------------------------------------------
+    | Set to false to disable all Artisan Runner routes entirely.
+    */
+    'enabled' => env('ARTISAN_RUNNER_ENABLED', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Route Prefix
     |--------------------------------------------------------------------------
     | The URL prefix for all Artisan Runner routes.
     */
     'route_prefix' => env('ARTISAN_RUNNER_PREFIX', 'artisan-runner'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Middleware
+    |--------------------------------------------------------------------------
+    | Middleware applied to all Artisan Runner routes. Defaults to ['web'].
+    | Use ['nova-web'] when integrating with Laravel Nova.
+    */
+    'middleware' => ['web'],
 
     /*
     |--------------------------------------------------------------------------

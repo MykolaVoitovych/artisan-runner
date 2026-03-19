@@ -35,12 +35,14 @@ class ArtisanRunnerServiceProvider extends ServiceProvider
             ], 'artisan-runner-views');
         }
 
-        $this->registerRoutes();
+        if (config('artisan-runner.enabled', true)) {
+            $this->registerRoutes();
+        }
     }
 
     protected function registerRoutes(): void
     {
-        $middleware = ['nova-web'];
+        $middleware = config('artisan-runner.middleware', ['web']);
 
         if ($guard = config('artisan-runner.guard')) {
             $middleware[] = 'auth:' . $guard;

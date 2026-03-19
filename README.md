@@ -57,6 +57,9 @@ return [
     // URL prefix for all routes
     'route_prefix' => env('ARTISAN_RUNNER_PREFIX', 'artisan-runner'),
 
+    // Middleware applied to all routes. Use ['nova-web'] for Nova integration.
+    'middleware' => ['web'],
+
     // Authentication guard. Set to null to disable auth.
     // Examples: 'nova', 'web', 'sanctum'
     'guard' => null,
@@ -139,6 +142,7 @@ Use the **Delete** button on the history list to remove a log entry.
 
 | Variable | Default | Description |
 |---|---|---|
+| `ARTISAN_RUNNER_ENABLED` | `true` | Enable or disable all routes |
 | `ARTISAN_RUNNER_PREFIX` | `artisan-runner` | URL prefix for all routes |
 | `ARTISAN_RUNNER_TIMEOUT` | `300` | Max seconds a command may run |
 
