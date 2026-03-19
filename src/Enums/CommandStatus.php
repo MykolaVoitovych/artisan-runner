@@ -1,6 +1,6 @@
 <?php
 
-namespace Vantage\ArtisanRunner\Enums;
+namespace Mykolavoitovych\ArtisanRunner\Enums;
 
 enum CommandStatus: string
 {

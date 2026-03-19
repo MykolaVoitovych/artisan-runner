@@ -19,9 +19,6 @@
         </svg>
         <h1 class="text-lg font-semibold text-white">Artisan Runner</h1>
     </div>
-    <a href="{{ url(config('nova.path', 'nova')) }}" class="text-sm text-gray-400 hover:text-gray-200 transition-colors">
-        ← Back to Nova
-    </a>
 </header>
 
 <div class="max-w-6xl mx-auto px-6 py-8 space-y-8">

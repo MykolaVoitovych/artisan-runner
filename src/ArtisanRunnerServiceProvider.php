@@ -1,10 +1,11 @@
 <?php
 
-namespace Vantage\ArtisanRunner;
+namespace Mykolavoitovych\ArtisanRunner;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Vantage\ArtisanRunner\Http\Controllers\ArtisanRunnerController;
+use Mykolavoitovych\ArtisanRunner\Http\Controllers\ArtisanRunnerController;
+use Mykolavoitovych\ArtisanRunner\Http\Middleware\AuthenticateOrAbort;
 
 class ArtisanRunnerServiceProvider extends ServiceProvider
 {
@@ -45,7 +46,7 @@ class ArtisanRunnerServiceProvider extends ServiceProvider
         $middleware = config('artisan-runner.middleware', ['web']);
 
         if ($guard = config('artisan-runner.guard')) {
-            $middleware[] = 'auth:' . $guard;
+            $middleware[] = AuthenticateOrAbort::class . ':' . $guard;
         }
 
         Route::middleware($middleware)

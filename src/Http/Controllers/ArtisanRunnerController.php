@@ -1,6 +1,6 @@
 <?php
 
-namespace Vantage\ArtisanRunner\Http\Controllers;
+namespace Mykolavoitovych\ArtisanRunner\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -9,9 +9,9 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Vantage\ArtisanRunner\Enums\CommandStatus;
-use Vantage\ArtisanRunner\Jobs\RunArtisanCommandJob;
-use Vantage\ArtisanRunner\Models\CommandLog;
+use Mykolavoitovych\ArtisanRunner\Enums\CommandStatus;
+use Mykolavoitovych\ArtisanRunner\Jobs\RunArtisanCommandJob;
+use Mykolavoitovych\ArtisanRunner\Models\CommandLog;
 
 class
 ArtisanRunnerController extends Controller
@@ -57,7 +57,7 @@ ArtisanRunnerController extends Controller
                 ->withErrors(['command' => "Command \"{$commandName}\" does not exist."]);
         }
 
-        $admin = Auth::guard('nova')->user();
+        $admin = Auth::guard(config('artisan-runner.guard'))->user();
 
         $commandLog = CommandLog::create([
             'command' => $command,
@@ -73,9 +73,7 @@ ArtisanRunnerController extends Controller
 
     public function show(CommandLog $commandLog): View
     {
-        $novaPath = config('nova.path', 'nova');
-
-        return view('artisan-runner::show', compact('commandLog', 'novaPath'));
+        return view('artisan-runner::show', compact('commandLog'));
     }
 
     public function output(CommandLog $commandLog, Request $request): JsonResponse

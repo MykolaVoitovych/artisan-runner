@@ -1,11 +1,11 @@
 <?php
 
-namespace Vantage\ArtisanRunner\Models;
+namespace Mykolavoitovych\ArtisanRunner\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Vantage\ArtisanRunner\Enums\CommandStatus;
+use Mykolavoitovych\ArtisanRunner\Enums\CommandStatus;
 
 /**
  * @property int $id
