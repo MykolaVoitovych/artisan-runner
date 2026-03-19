@@ -1,5 +1,5 @@
 {
-    "name": "vantage/artisan-runner",
+    "name": "mykolavoitovych/artisan-runner",
     "description": "Run Artisan commands via the web with Nova authentication and real-time output",
     "type": "library",
     "version": "1.0.0",
@@ -12,13 +12,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Vantage\\ArtisanRunner\\": "src/"
+            "Mykolavoitovych\\ArtisanRunner\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vantage\\ArtisanRunner\\ArtisanRunnerServiceProvider"
+                "Mykolavoitovych\\ArtisanRunner\\ArtisanRunnerServiceProvider"
             ]
         }
     }
